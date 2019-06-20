@@ -24,7 +24,6 @@ con <- dbConnect(RMySQL::MySQL(),
 dbSendQuery(con, "SET NAMES utf8mb4;")
 dcard_area <- dbReadTable(con, name = 'dcard_content', header= FALSE)
 #View(ptt_content)
-#dcard_area <- read.csv("/Users/lialee/Desktop/dcard_final.csv")
 
 clean_data <- dcard_area[dcard_area$area %in% c(1:5),]
 clean_data <- clean_data %>% 
