@@ -7,7 +7,7 @@ library(markdown)
 library(DBI)
 library(RMySQL)
 
-host <- "192.168.35.119" # 輸入自己的 AWS RDS Enpoint 位址
+host <- "192.168.35.119" # 輸入自己的IP位址
 port <- 3306
 dbname <- "dcard_db" # 輸入自己設定的資料庫名稱
 user <- "lia" # 輸入自己設定的使用者名稱
@@ -24,7 +24,6 @@ con <- dbConnect(RMySQL::MySQL(),
 dbSendQuery(con, "SET NAMES utf8mb4;")
 dcard_area <- dbReadTable(con, name = 'dcard_content', header= FALSE)
 #View(ptt_content)
-
 #dcard_area <- read.csv("/Users/lialee/Desktop/dcard_final.csv")
 
 clean_data <- dcard_area[dcard_area$area %in% c(1:5),]
